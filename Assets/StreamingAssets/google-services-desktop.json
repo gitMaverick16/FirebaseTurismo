@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "122674686833",
-    "firebase_url": "https://turismo-1b4c7-default-rtdb.firebaseio.com",
-    "project_id": "turismo-1b4c7",
-    "storage_bucket": "turismo-1b4c7.appspot.com"
+    "project_number": "1084530896310",
+    "firebase_url": "https://fir-proyectoturismo-default-rtdb.firebaseio.com",
+    "project_id": "fir-proyectoturismo",
+    "storage_bucket": "fir-proyectoturismo.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:122674686833:android:1e6aa3a0abad616593a4d0",
+        "mobilesdk_app_id": "1:1084530896310:android:5a487b2d4862f0b5fde517",
         "android_client_info": {
           "package_name": "com.DefaultCompany.FirebaseAuthTutorialStarterProject"
         }
       },
       "oauth_client": [
         {
-          "client_id": "122674686833-hsmn88t0rq0tfu593lp75e4ms8l4camt.apps.googleusercontent.com",
+          "client_id": "1084530896310-437qodtlsf6v90jjn0menr8jhobo4qja.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAw3pYO7dN626H9K25FNHmpLKxLEWp6FKc"
+          "current_key": "AIzaSyC95edr0VlHGUs1anIjMIHJa_zfe0Yj_PY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "122674686833-hsmn88t0rq0tfu593lp75e4ms8l4camt.apps.googleusercontent.com",
+              "client_id": "1084530896310-437qodtlsf6v90jjn0menr8jhobo4qja.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -78,7 +78,7 @@ public class AuthManager : MonoBehaviour
     private void Awake()
     {
         storage = FirebaseStorage.DefaultInstance;
-        storageReference = storage.GetReferenceFromUrl("gs://turismo-1b4c7.appspot.com");
+        storageReference = storage.GetReferenceFromUrl("gs://fir-proyectoturismo.appspot.com");
 
         //Check that all of the necessary dependencies for Firebase are present on the system
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>

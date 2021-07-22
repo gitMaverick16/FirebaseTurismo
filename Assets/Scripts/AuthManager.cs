@@ -26,7 +26,7 @@ public class AuthManager : MonoBehaviour
 
     StorageReference storageReference;
     FirebaseStorage storage;
-    
+
 
     //Variables para captura
     public string folder = "ScreenshotFolder";
@@ -66,7 +66,7 @@ public class AuthManager : MonoBehaviour
     public TMP_InputField passwordRegisterVerifyField;
     public TMP_Text warningRegisterText;
 
-    
+
     private void Start()
     {
         //InitializeFirebase();
@@ -127,7 +127,7 @@ public class AuthManager : MonoBehaviour
     {
         //Call the register coroutine passing the email, password, and username
         StartCoroutine(Register(emailRegisterField.text, passwordRegisterField.text, usernameRegisterField.text));
-        
+
     }
 
     public void SignOutButton()
@@ -141,9 +141,9 @@ public class AuthManager : MonoBehaviour
     //Function for the save button
     public void SaveData()
     {
-        
+
         StartCoroutine(UpdateUsernameDatabase());
-        
+
     }
     public void SaveLevelOne(double tiempo)
     {
@@ -327,10 +327,10 @@ public class AuthManager : MonoBehaviour
     private IEnumerator UpdateUsernameDatabase()
     {
         //Set the currently logged in user username in the database
-       
+
 
         //
-         var DBTask = DBreference.Child(User.UserId).Child("partida" + id_partida.ToString()).Child("ID de partida").SetValueAsync(id_partida.ToString());
+        var DBTask = DBreference.Child(User.UserId).Child("partida" + id_partida.ToString()).Child("ID de partida").SetValueAsync(id_partida.ToString());
 
         //
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
@@ -446,7 +446,7 @@ public class AuthManager : MonoBehaviour
         tiempoNivelUno.Restart();
         tiempoNivelUno.Start();
 
-        
+
     }
 
     public void startLevelTwo()
@@ -460,7 +460,7 @@ public class AuthManager : MonoBehaviour
         tiempoNivelDos.Restart();
         tiempoNivelDos.Start();
 
-        
+
     }
 
     public void finishGame()
@@ -475,7 +475,7 @@ public class AuthManager : MonoBehaviour
         tiempoNivelUno.Restart();
         tiempoNivelDos.Restart();
 
-        
+
 
 
     }
@@ -505,14 +505,14 @@ public class AuthManager : MonoBehaviour
         }
     }
 
-    
-    
+
+
     public void takePhoto()
     {
-       
+
         var texture = ScreenCapture.CaptureScreenshotAsTexture();
-        
-        
+
+
         var bytes = texture.EncodeToPNG();
         //Create a reference to where  the file needs to be uploated
         Random aleatorio = new Random();
@@ -522,11 +522,11 @@ public class AuthManager : MonoBehaviour
         var newMetaData = new MetadataChange();
         newMetaData.ContentType = "image/png";
 
-        StorageReference uploadRef = storageReference.Child(User.UserId).Child(numero+" shot.png");
+        StorageReference uploadRef = storageReference.Child(User.UserId).Child(numero + " shot.png");
         Debug.Log("File upload started");
         uploadRef.PutBytesAsync(bytes, newMetaData).ContinueWithOnMainThread((task) =>
         {
-            if(task.IsFaulted || task.IsCanceled)
+            if (task.IsFaulted || task.IsCanceled)
             {
                 Debug.Log(task.Exception.ToString());
             }
@@ -544,7 +544,7 @@ public class AuthManager : MonoBehaviour
         var uploadTask = screenshotReference.PutBytesAsync(bytes);
         yield return new WaitUntil(() => uploadTask.IsCompleted);
 
-        if(uploadTask.Exception != null)
+        if (uploadTask.Exception != null)
         {
             Debug.LogError($"Failed to upload because {uploadTask.Exception}");
             yield break;
@@ -552,12 +552,12 @@ public class AuthManager : MonoBehaviour
         var getUrlTask = screenshotReference.GetDownloadUrlAsync();
         yield return new WaitUntil(() => getUrlTask.IsCompleted);
 
-        if(getUrlTask.Exception != null)
+        if (getUrlTask.Exception != null)
         {
             Debug.LogError($"Failed to get a dowload url with {getUrlTask.Exception}");
             yield break;
         }
         Debug.Log($"Download from {getUrlTask.Result}");
     }
-    
+
 }
